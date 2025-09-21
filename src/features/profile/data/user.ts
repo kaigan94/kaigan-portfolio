@@ -13,7 +13,7 @@ export const USER: User = {
   phoneNumber: "KzQ2NzMwMzQwNDM0", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "a2FpZ2FuLmNvZGVzQGdtYWlsLmNvbQ==", // base64 encoded
   website: "my-domain.com", // Place after deployment
-  jobTitle: "Student",
+  jobTitle: "Frontend Developer",
   jobs: [
     {
       title: "Fullstack Student",
