@@ -4,7 +4,7 @@ A minimal portfolio and blog to showcase my work as a developer.
 
 Check out the live site: [kaigan.dev](https://kaigan.dev)
 
-![Kaigan portfolio preview](./public/images/screenshots/desktop-light.webp)
+![Kaigan portfolio preview](./public/images/screenshots/desktop-dark.webp)
 
 > Tip: swap the preview image above if you customize the look and feel.
 
