@@ -54,17 +54,21 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-edge">
-          <h1 className="flex flex-wrap items-center gap-x-1 gap-y-2 pl-4 text-2xl leading-tight font-semibold tracking-tight sm:flex-nowrap sm:gap-x-2 sm:text-3xl">
-            <span className="leading-tight">{USER.displayName}</span>
-            <SimpleTooltip content="Verified">
-              <VerifiedIcon className="size-[0.7em] shrink-0 text-info select-none" />
-            </SimpleTooltip>
-            {USER.namePronunciationUrl && (
-              <PronounceMyName
-                className="shrink-0"
-                namePronunciationUrl={USER.namePronunciationUrl}
-              />
-            )}
+          <h1 className="flex flex-col items-start justify-center gap-y-2 px-4 py-3 text-2xl leading-none font-semibold tracking-tight sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-x-2 sm:gap-y-0 sm:py-2 sm:pr-0 sm:text-3xl sm:leading-tight">
+            <span className="leading-none sm:leading-tight">
+              {USER.displayName}
+            </span>
+            <div className="flex items-center gap-x-2">
+              <SimpleTooltip content="Verified">
+                <VerifiedIcon className="size-[0.7em] shrink-0 text-info select-none" />
+              </SimpleTooltip>
+              {USER.namePronunciationUrl && (
+                <PronounceMyName
+                  className="shrink-0"
+                  namePronunciationUrl={USER.namePronunciationUrl}
+                />
+              )}
+            </div>
           </h1>
 
           <div className="flex h-10 items-center border-t border-edge py-1 pl-4 sm:h-auto sm:py-2">

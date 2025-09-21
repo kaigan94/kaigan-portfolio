@@ -42,14 +42,27 @@ export default function TypewriterEffect({
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [lineHeightPx, setLineHeightPx] = useState<number | null>(null);
 
   const timeoutRef = useRef<number | null>(null);
   const blinkRef = useRef<number | null>(null);
+  const rootRef = useRef<HTMLSpanElement | null>(null);
 
   const currentWord = useMemo(() => {
     if (!words.length) return "";
     return words[wordIndex % words.length].word ?? "";
   }, [words, wordIndex]);
+
+  // Numeric font size for cursor height calculation & layout stabilisation
+  const numericFontSize = useMemo(() => {
+    const fs =
+      font?.fontSize ?? (style?.fontSize as string | number | undefined) ?? 32;
+    if (typeof fs === "number") return fs;
+    if (typeof fs === "string" && fs.endsWith("px")) {
+      return parseFloat(fs);
+    }
+    return 32;
+  }, [font?.fontSize, style?.fontSize]);
 
   // Typing / deleting loop
   useEffect(() => {
@@ -99,6 +112,27 @@ export default function TypewriterEffect({
     words.length,
   ]);
 
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const computed = window.getComputedStyle(el);
+    const parsed = parseFloat(computed.lineHeight);
+
+    if (!Number.isNaN(parsed)) {
+      setLineHeightPx(parsed);
+    } else {
+      setLineHeightPx(null);
+    }
+  }, [
+    numericFontSize,
+    className,
+    font?.fontSize,
+    font?.lineHeight,
+    style?.fontSize,
+    style?.lineHeight,
+  ]);
+
   // Blinking cursor
   useEffect(() => {
     if (blinkRef.current) window.clearInterval(blinkRef.current);
@@ -110,19 +144,9 @@ export default function TypewriterEffect({
     };
   }, []);
 
-  // Numeric font size for cursor height calculation
-  const numericFontSize = useMemo(() => {
-    const fs =
-      font?.fontSize ?? (style?.fontSize as string | number | undefined) ?? 32;
-    if (typeof fs === "number") return fs;
-    if (typeof fs === "string" && fs.endsWith("px")) {
-      return parseFloat(fs);
-    }
-    return 32;
-  }, [font?.fontSize, style?.fontSize]);
-
   return (
     <span
+      ref={rootRef}
       className={className}
       style={{
         ...style,
@@ -131,7 +155,7 @@ export default function TypewriterEffect({
         display: "inline-flex",
         alignItems: "center",
         minWidth: 1,
-        minHeight: 1,
+        minHeight: lineHeightPx ?? numericFontSize,
         width: "max-content",
         height: "max-content",
         whiteSpace: "pre",

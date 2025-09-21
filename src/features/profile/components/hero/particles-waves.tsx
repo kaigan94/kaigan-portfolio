@@ -11,11 +11,11 @@ type Props = {
   amountY?: number;
   separation?: number;
   amplitude?: number;
-  speed?: number; // 0–0.6 typ
+  speed?: number; // 0–0.6
   dprLimit?: number; // 1–3
   cameraFov?: number;
   cameraHeight?: number;
-  sideMotion?: number; // 0 = av
+  sideMotion?: number; // 0
 };
 
 export default function ParticlesWaves({
@@ -24,7 +24,7 @@ export default function ParticlesWaves({
   pointSize = 10,
   amountX = 60,
   amountY = 60,
-  separation = 120,
+  separation = 100,
   amplitude = 40,
   speed = 0.25,
   dprLimit = 2,
