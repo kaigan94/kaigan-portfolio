@@ -4,9 +4,33 @@ A minimal portfolio and blog to showcase my work as a developer.
 
 Check out the live site: [kaigan.dev](https://kaigan.dev)
 
-![Kaigan portfolio preview](./public/images/screenshots/desktop-dark.webp)
+<p align="center">
+  <img
+    src="./public/images/screenshots/screenshot-desktop-light.webp"
+    alt="Kaigan portfolio – Desktop light theme"
+    width="420"
+  />
+  <img
+    src="./public/images/screenshots/screenshot-desktop-dark.webp"
+    alt="Kaigan portfolio – Desktop dark theme"
+    width="420"
+  />
+</p>
 
-> Tip: swap the preview image above if you customize the look and feel.
+<p align="center">
+  <img
+    src="./public/images/screenshots/screenshot-mobile-light.webp"
+    alt="Kaigan portfolio – Mobile light theme"
+    width="210"
+  />
+  <img
+    src="./public/images/screenshots/screenshot-mobile-dark.webp"
+    alt="Kaigan portfolio – Mobile dark theme"
+    width="210"
+  />
+</p>
+
+> Tip: swap the preview images above if you customize the look and feel.
 
 ## Overview
 

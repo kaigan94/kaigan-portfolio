@@ -42,7 +42,7 @@ export function Hero() {
           alt="Kaigan wordmark"
           width={108}
           height={32}
-          className="h-8 w-auto"
+          className="h-8 w-auto invert filter dark:invert-0"
           priority
         />
       </motion.div>

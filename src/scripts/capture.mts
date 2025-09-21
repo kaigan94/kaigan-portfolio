@@ -45,14 +45,28 @@ async function captureScreenshot({
   // Ensure the output directory exists
   await fs.promises.mkdir(outputDir, { recursive: true });
 
-  const page = await browser.newPage();
-
-  const { width, height } = SIZE[size];
-  await page.setViewport({ width, height });
-
-  await page.goto(url, { waitUntil: "networkidle2" });
-
   for (const theme of themes) {
+    const page = await browser.newPage();
+
+    const { width, height } = SIZE[size];
+    await page.setViewport({ width, height });
+
+    await page.evaluateOnNewDocument((selectedTheme) => {
+      try {
+        localStorage.setItem("theme", selectedTheme);
+      } catch (error) {
+        console.warn("Unable to persist theme in localStorage", error);
+      }
+
+      if (selectedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }, theme);
+
+    await page.goto(url, { waitUntil: "networkidle2" });
+
     await page.emulateMediaFeatures([
       { name: "prefers-color-scheme", value: theme },
     ]);
@@ -62,6 +76,7 @@ async function captureScreenshot({
       `screenshot-${size}-${theme}.${type}`
     ) as `${string}.webp` | `${string}.png` | `${string}.jpeg`;
 
+    await new Promise((res) => setTimeout(res, 300));
     await page.screenshot({
       path: filePath,
       type,
@@ -69,9 +84,9 @@ async function captureScreenshot({
     });
 
     console.log(`✅ Screenshot saved:`, filePath);
-  }
 
-  await page.close();
+    await page.close();
+  }
 }
 
 async function main() {
