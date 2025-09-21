@@ -1,89 +1,77 @@
-# [chanhdai.com](https://chanhdai.com)
+# Kaigan Portfolio
 
-A minimal portfolio, component registry, and blog to showcase my work as a Design Engineer.
+A minimal portfolio and blog to showcase my work as a developer.
 
-Check out the live site: [chanhdai.com](https://chanhdai.com)
+Check out the live site: [kaigan.dev](https://kaigan.dev)
 
-<a href="https://frogdr.com/chanhdai.com?via=ncdai&utm_source=chanhdai.com">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://frogdr.com/chanhdai.com/badge-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://frogdr.com/chanhdai.com/badge-white.svg">
-    <img src="https://frogdr.com/chanhdai.com/badge-white.svg" alt="Monitor your Domain Rating" style="width: auto; height: 40px">
-  </picture>
-</a>
+![Kaigan portfolio preview](./public/images/screenshots/desktop-light.webp)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://assets.chanhdai.com/images/screenshot-desktop-dark.webp">
-  <source media="(prefers-color-scheme: light)" srcset="https://assets.chanhdai.com/images/screenshot-desktop-light.webp">
-  <img src="https://assets.chanhdai.com/images/screenshot-desktop-light.webp" alt="Screenshot">
-</picture>
+> Tip: swap the preview image above if you customize the look and feel.
 
 ## Overview
 
-### Tech Stack
+### Highlights
 
-- Next.js 15
-- Tailwind CSS v4
-- shadcn/ui
+- ✅ Built with Next.js 15, Tailwind CSS v4, TypeScript, and shadcn/ui
+- 🎯 Production-ready defaults for SEO, analytics, and accessibility
+- 🧱 Component registry to quickly showcase reusable UI pieces
+- 📰 MDX-powered blog with RSS feed and syntax highlighting
+- 📱 PWA support with install prompts and offline caching
+- 🌗 Theme-aware design with carefully tuned motion states
 
-### Featured
+## Getting Started
 
-- Clean & modern design
-- Light & Dark theme support
-- vCard integration
-- SEO optimization: [JSON-LD schema](https://json-ld.org), sitemap, robots
-- AI-friendly [/llms.txt](https://llmstxt.org)
-- Spam-protected email
-- Installable PWA
+### Requirements
 
-### Blog
+- Node.js 20+
+- pnpm 9+
 
-- MDX & Markdown support
-- Access markdown by adding `.mdx` to URLs, e.g. `/blog/welcome.mdx`
-- Syntax Highlighting for better readability
-- RSS Feed for easy content distribution
-- Dynamic OG Images for rich previews
+### Setup
 
-### Component Registry
+```bash
+# Install dependencies
+pnpm install
 
-Easily build and distribute your own components, hooks, and pages using a custom registry powered by the [shadcn CLI](https://ui.shadcn.com/docs/cli).
+# Start development server
+pnpm dev
+```
 
-Each component is well-documented through the Blog, featuring:
+The app starts at http://localhost:1408.
 
-- **Live Preview**: Interactive component demos
-- **Code Snippets**: Readable and copyable examples
-- **Beautiful Code Blocks**: Styled for clarity and dark mode
-- **Command Blocks**: One-click copy for quick install commands (`pnpm`, `npm`, `yarn`, `bun`)
+To target your own deployment domain, update the values in `src/config/site.ts`, `next.config.ts`, and the files under `public/icons/`.
+
+```bash
+pnpm build
+pnpm start
+```
+
+## Deployment
+
+Vercel is the quickest route—just import the repo and add the environment variables from `.env.example`. For other hosts, run `pnpm build` and serve the output of `.next` with any Node-compatible platform.
+
+## Customisation Checklist
+
+Use this when adapting the template:
+
+1. Replace profile data in `src/features/profile/data/*`.
+2. Update branding assets in `public/icons/` (see [branding guide](docs/BRANDING.md)).
+3. Tailor analytics/social metadata in `src/app/layout.tsx`.
+4. Refresh registry content via `pnpm run build:registry`.
 
 ## Development
 
-Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
+### Available Scripts
+
+```bash
+pnpm lint      # Static analysis
+pnpm test      # Run component tests (if configured)
+pnpm format    # Format with Prettier
+```
 
 ## License
 
-Licensed under the [MIT license](./LICENSE).
+Licensed under the MIT License. Feel free to fork and iterate—just remember to replace personal details with your own branding.
 
-You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
+## Acknowledgements
 
-## Star History
-
-[![Star History](https://starchart.cc/ncdai/chanhdai.com.svg?variant=adaptive)](https://starchart.cc/ncdai/chanhdai.com)
-
-## Acknowledgments
-
-- [React](https://react.dev)
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Radix UI](https://www.radix-ui.com)
-- [Motion](https://motion.dev)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Aceternity UI](https://ui.aceternity.com)
-- [Lucide](https://lucide.dev)
-- [Fumadocs](https://fumadocs.dev)
-- And many other open-source libraries used in `package.json`
-
-## GitAds Sponsored
-
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=ncdai/chanhdai.com@github)](https://gitads.dev/v1/ad-track?source=ncdai/chanhdai.com@github)
-
-<!-- GitAds-Verify: QICCAB4PFWV9MHUGPGPN5B2I8SAXLAOK -->
+Powered by React, Next.js, Tailwind CSS, Radix UI, Motion, shadcn/ui, Lucide, and the rest of the open-source packages listed in `package.json`.

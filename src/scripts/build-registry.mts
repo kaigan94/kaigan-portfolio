@@ -1,11 +1,21 @@
 import { promises as fs } from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 
 import { rimraf } from "rimraf";
 import { type Registry, registrySchema } from "shadcn/schema";
 
-import { registryConfig } from "../config/registry";
-import { registry } from "../registry";
+const require = createRequire(import.meta.url);
+
+const { registryConfig } = require("../config/registry") as {
+  registryConfig: {
+    baseUrl: string;
+  };
+};
+
+const { registry } = require("../registry") as {
+  registry: Registry;
+};
 
 const REGISTRY_PATH = path.join(process.cwd(), "src/__registry__");
 const PUBLIC_REGISTRY_PATH = path.join(process.cwd(), "public/r");
@@ -58,8 +68,8 @@ export const Index: Record<string, any> = {`;
   let registryJSON = JSON.stringify(
     {
       $schema: "https://ui.shadcn.com/schema/registry.json",
-      name: "ncdai",
-      homepage: "https://chanhdai.com/components",
+      name: "kaigan",
+      homepage: "/components",
       items: registry.items
         .filter((item) => item.type !== "registry:example")
         .map((item) => {

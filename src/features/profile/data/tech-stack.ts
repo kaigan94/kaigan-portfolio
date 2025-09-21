@@ -1,10 +1,17 @@
 import type { TechStack } from "../types/tech-stack";
 
 export const TECH_STACK: TechStack[] = [
+  // --- Languages ---
   {
-    key: "typescript",
-    title: "TypeScript",
-    href: "https://www.typescriptlang.org/",
+    key: "html",
+    title: "HTML5",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    categories: ["Language"],
+  },
+  {
+    key: "css",
+    title: "CSS3",
+    href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
     categories: ["Language"],
   },
   {
@@ -14,15 +21,9 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Language"],
   },
   {
-    key: "python",
-    title: "Python",
-    href: "https://www.python.org/",
-    categories: ["Language"],
-  },
-  {
-    key: "php",
-    title: "PHP",
-    href: "https://www.php.net/",
+    key: "typescript",
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org/",
     categories: ["Language"],
   },
   {
@@ -31,18 +32,8 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.java.com/",
     categories: ["Language"],
   },
-  {
-    key: "nodejs",
-    title: "Node.js",
-    href: "https://nodejs.org/",
-    categories: ["Runtime Environment"],
-  },
-  {
-    key: "bun",
-    title: "Bun",
-    href: "https://bun.sh/",
-    categories: ["Runtime Environment"],
-  },
+
+  // --- Frameworks & Libraries ---
   {
     key: "react",
     title: "React",
@@ -55,6 +46,12 @@ export const TECH_STACK: TechStack[] = [
     href: "https://nextjs.org/",
     categories: ["Framework"],
     theme: true,
+  },
+  {
+    key: "spring",
+    title: "Spring",
+    href: "https://spring.io/",
+    categories: ["Framework"],
   },
   {
     key: "tailwindcss",
@@ -82,48 +79,29 @@ export const TECH_STACK: TechStack[] = [
     href: "https://motion.dev/",
     categories: ["Library", "Animation"],
   },
+
+  // --- Runtime & Backend ---
   {
-    key: "mobx-state-tree",
-    title: "MobX-State-Tree",
-    href: "https://mobx-state-tree.js.org/",
-    categories: ["State Management"],
+    key: "nodejs",
+    title: "Node.js",
+    href: "https://nodejs.org/",
+    categories: ["Runtime Environment"],
   },
+
+  // --- Database ---
   {
-    key: "redux",
-    title: "Redux",
-    href: "https://redux.js.org/",
-    categories: ["State Management"],
+    key: "my-sql",
+    title: "MySQL",
+    href: "https://www.mysql.com/",
+    categories: ["Database"],
   },
+
+  // --- Tools (API, Version Control, IDE) ---
   {
-    key: "antd",
-    title: "Ant Design",
-    href: "https://ant.design/",
-    categories: ["Library", "UI Library"],
-  },
-  {
-    key: "react-router",
-    title: "React Router",
-    href: "https://reactrouter.com/",
-    categories: ["Library", "Navigation"],
-    theme: true,
-  },
-  {
-    key: "react-navigation",
-    title: "React Navigation",
-    href: "https://reactnavigation.org/",
-    categories: ["Library", "Navigation"],
-  },
-  {
-    key: "loopback",
-    title: "LoopBack",
-    href: "https://loopback.io/",
-    categories: ["Framework"],
-  },
-  {
-    key: "laravel",
-    title: "Laravel",
-    href: "https://laravel.com/",
-    categories: ["Framework"],
+    key: "postman",
+    title: "Postman",
+    href: "https://www.postman.com/",
+    categories: ["Tools", "API"],
   },
   {
     key: "git",
@@ -132,28 +110,30 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Version Control"],
   },
   {
-    key: "docker",
-    title: "Docker",
-    href: "https://www.docker.com/",
-    categories: ["Containerization"],
+    key: "intellij",
+    title: "IntelliJ IDEA",
+    href: "https://www.jetbrains.com/idea/",
+    categories: ["Tools", "IDE"],
   },
   {
-    key: "mysql",
-    title: "MySQL",
-    href: "https://www.mysql.com/",
-    categories: ["Database"],
+    key: "vscode",
+    title: "VS Code",
+    href: "https://code.visualstudio.com/",
+    categories: ["Tools", "IDE"],
+  },
+
+  // --- Design Tools ---
+  {
+    key: "photoshop",
+    title: "Photoshop",
+    href: "https://www.adobe.com/products/photoshop.html",
+    categories: ["Tools", "Design"],
   },
   {
-    key: "mongodb",
-    title: "MongoDB",
-    href: "https://www.mongodb.com/",
-    categories: ["Database"],
-  },
-  {
-    key: "redis",
-    title: "Redis",
-    href: "https://redis.io/",
-    categories: ["Database"],
+    key: "canva",
+    title: "Canva",
+    href: "https://www.canva.com/",
+    categories: ["Tools", "Design"],
   },
   {
     key: "figma",
@@ -161,23 +141,13 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.figma.com/",
     categories: ["Tools", "Design"],
   },
+
+  // --- AI Tools ---
   {
-    key: "ps",
-    title: "Adobe Photoshop",
-    href: "https://www.adobe.com/vn_en/products/photoshop.html",
-    categories: ["Tools", "Design"],
-  },
-  {
-    key: "chatgpt",
+    key: "chat-gpt",
     title: "ChatGPT",
     href: "https://chatgpt.com/",
     categories: ["Tools", "AI"],
     theme: true,
   },
-  // {
-  //   key: "zalo-mini-app",
-  //   title: "Zalo Mini App",
-  //   href: "https://mini.zalo.me/",
-  //   categories: ["Other"],
-  // },
 ];

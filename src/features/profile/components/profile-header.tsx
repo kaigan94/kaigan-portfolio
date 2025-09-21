@@ -20,18 +20,20 @@ export function ProfileHeader() {
           />
         </div>
 
-        <SimpleTooltip content="I'm from Việt Nam">
-          {/* Flag of Viet Nam */}
+        <SimpleTooltip content="I'm from Sweden">
+          {/* Sweden flag (inline SVG) */}
           <svg
             className="absolute top-0 -left-px h-8 sm:h-9"
             viewBox="0 0 30 20"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
           >
-            <rect width="30" height="20" fill="#F00" />
-            <polygon
-              points="15,4 11.47,14.85 20.71,8.15 9.29,8.15 18.53,14.85"
-              fill="#FFEB00"
-            />
+            {/* Blue background */}
+            <rect width="22" height="14" fill="#006AA7" />
+            {/* Yellow cross */}
+            <rect x="0" y="5" width="22" height="4" fill="#FECC00" />
+            <rect x="5" y="0" width="4" height="14" fill="#FECC00" />
           </svg>
         </SimpleTooltip>
       </div>
@@ -52,7 +54,7 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-edge">
-          <h1 className="flex items-center pl-4 text-3xl font-semibold">
+          <h1 className="flex items-center pl-4 text-2xl font-semibold tracking-tight sm:text-3xl">
             {USER.displayName}
             &nbsp;
             <SimpleTooltip content="Verified">
@@ -69,7 +71,7 @@ export function ProfileHeader() {
             )}
           </h1>
 
-          <div className="h-12 border-t border-edge py-1 pl-4 sm:h-auto">
+          <div className="flex h-10 items-center border-t border-edge py-1 pl-4 sm:h-auto sm:py-2">
             <FlipSentences sentences={USER.flipSentences} />
           </div>
         </div>

@@ -4,14 +4,14 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import { ChanhDaiMark } from "./chanhdai-mark";
+import { KaiganMark } from "./kaigan-mark";
 
 export function SiteHeaderMark() {
   const pathname = usePathname();
-  return pathname === "/" ? <ChanhDaiMarkMotion /> : <ChanhDaiMark />;
+  return pathname === "/" ? <KaiganMarkMotion /> : <KaiganMark />;
 }
 
-function ChanhDaiMarkMotion() {
+function KaiganMarkMotion() {
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(false);
   const distanceRef = useRef(160);
@@ -39,20 +39,19 @@ function ChanhDaiMarkMotion() {
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 256"
-      initial={{
-        opacity: 0,
-        transform: "translateY(8px)",
-      }}
-      animate={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0px)" : "translateY(8px)",
-      }}
+      viewBox="0 0 108 32"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 8 }}
       transition={{ duration: 0.3 }}
+      className="h-6 w-auto"
+      aria-hidden
+      focusable="false"
     >
-      <path
-        d="M192 256H64v-64h128v64ZM448 64H320v128h128v64H256V0h192v64ZM64 192H0V64h64v128ZM512 192h-64V64h64v128ZM192 64H64V0h128v64Z"
-        fill="currentColor"
+      <image
+        href="/icons/favicons/favicon-full.svg"
+        width="108"
+        height="32"
+        className="invert filter dark:invert-0"
       />
     </motion.svg>
   );

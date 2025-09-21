@@ -18,4 +18,6 @@ export type TechStack = {
   categories: string[];
   /** If true, use theme-specific icons for dark/light mode. */
   theme?: boolean;
+  /** Proficiency level for the technology. */
+  // level?: "proficient" | "working" | "learning";
 };

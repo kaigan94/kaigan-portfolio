@@ -17,11 +17,11 @@ export function SiteFooter() {
           Built by{" "}
           <a
             className="link"
-            href="https://x.com/iamncdai"
+            href="https://www.linkedin.com/in/nicholas-sjostrand/"
             target="_blank"
             rel="noopener"
           >
-            ncdai
+            Kaigan
           </a>
           . The source code is available on{" "}
           <a
