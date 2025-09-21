@@ -54,20 +54,16 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-edge">
-          <h1 className="flex items-center pl-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            {USER.displayName}
-            &nbsp;
+          <h1 className="flex flex-wrap items-center gap-x-1 gap-y-2 pl-4 text-2xl leading-tight font-semibold tracking-tight sm:flex-nowrap sm:gap-x-2 sm:text-3xl">
+            <span className="leading-tight">{USER.displayName}</span>
             <SimpleTooltip content="Verified">
-              <VerifiedIcon className="size-[0.6em] translate-y-px text-info select-none" />
+              <VerifiedIcon className="size-[0.7em] shrink-0 text-info select-none" />
             </SimpleTooltip>
             {USER.namePronunciationUrl && (
-              <>
-                &nbsp;
-                <PronounceMyName
-                  className="translate-y-px"
-                  namePronunciationUrl={USER.namePronunciationUrl}
-                />
-              </>
+              <PronounceMyName
+                className="shrink-0"
+                namePronunciationUrl={USER.namePronunciationUrl}
+              />
             )}
           </h1>
 

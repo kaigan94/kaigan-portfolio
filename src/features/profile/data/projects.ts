@@ -5,10 +5,10 @@ export const PROJECTS: Project[] = [
     id: "new-portfolio",
     title: "Modern Portfolio",
     period: {
-      start: "09.2025",
-      end: "",
+      start: "07.2025",
+      end: "09.2025",
     },
-    link: "https://example.com",
+    link: "https://kaigan-portfolio.vercel.app/",
     skills: [
       "React",
       "TypeScript",
@@ -55,10 +55,10 @@ Blog Features:
     title: "Noctra Counting App",
     period: {
       start: "09.2024",
-      end: "",
+      end: "11.2024",
     },
     link: "https://noctra.netlify.app/",
-    skills: ["HTML", "CSS", "JavaScript"],
+    skills: ["HTML", "CSS", "JavaScript", "Canva"],
     description: `A small practice project where I learned core JavaScript and DOM handling
 - Count up/down, then save snapshots to a history
 - See total entries and “last updated”

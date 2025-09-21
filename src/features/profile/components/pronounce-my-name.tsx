@@ -15,13 +15,13 @@ export function PronounceMyName({
   return (
     <button
       className={cn(
-        "relative text-muted-foreground transition-all select-none hover:text-foreground active:scale-[0.9]",
+        "relative inline-flex items-center justify-center text-muted-foreground transition-all select-none hover:text-foreground active:scale-[0.9]",
         "after:absolute after:-inset-1",
         className
       )}
       onClick={() => soundManager.playAudio(namePronunciationUrl)}
     >
-      <Volume2Icon className="size-[0.6em]" />
+      <Volume2Icon className="size-[0.7em]" />
       <span className="sr-only">Pronounce my name</span>
     </button>
   );
