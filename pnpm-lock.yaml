@@ -136,6 +136,9 @@ importers:
       '@types/three':
         specifier: ^0.180.0
         version: 0.180.0
+      '@types/unist':
+        specifier: ^3.0.3
+        version: 3.0.3
       eslint:
         specifier: ^9.35.0
         version: 9.35.0(jiti@2.5.1)
