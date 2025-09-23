@@ -276,6 +276,16 @@
     text-rendering: optimizeLegibility;
   }
 
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    background-color: var(--background);
+    color: inherit;
+  }
+
+  ::view-transition-group(root) {
+    background-color: var(--background);
+  }
+
   /* Custom scrollbar styling. Thanks @shadcn-ui */
   ::-webkit-scrollbar {
     width: 5px;

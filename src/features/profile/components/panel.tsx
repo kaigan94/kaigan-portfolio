@@ -22,7 +22,7 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="panel-header"
-      className={cn("screen-line-after px-4", className)}
+      className={cn("screen-line-after px-4 py-1", className)}
       {...props}
     />
   );
@@ -38,7 +38,7 @@ function PanelTitle({
   return (
     <Comp
       data-slot="panel-title"
-      className={cn("text-3xl font-semibold", className)}
+      className={cn("text-[1.7rem] font-semibold", className)}
       {...props}
     />
   );

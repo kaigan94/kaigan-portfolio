@@ -5,10 +5,9 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { cn } from "@/lib/utils";
 
-import TypewriterEffect from "./typewriter-effect";
 const ParticlesWaves = dynamic(() => import("./particles-waves"), {
   ssr: false,
 });
@@ -54,46 +53,27 @@ export function Hero() {
           priority
         />
       </motion.div>
-      <TypewriterEffect
-        className={cn(
-          "text-lg leading-relaxed text-muted-foreground sm:text-xl sm:leading-relaxed",
-          isMobile && "text-base"
-        )}
-        words={[
-          { word: "Fullstack Student" },
-          { word: "Frontend Developer" },
-          { word: "Backend Explorer" },
-          { word: "Open For Work :)" },
-        ]}
-        typingSpeed={isMobile ? 95 : 110}
-        deletingSpeed={isMobile ? 32 : 38}
-        pauseDuration={isMobile ? 800 : 1100}
-        cursorColor="currentColor"
-        cursorWidth={isMobile ? 1 : 1.5}
-        cursorHeight={isMobile ? 52 : 70}
-      />
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: "easeOut", delay: 0.15 }}
         className="flex flex-wrap items-center justify-center gap-5 py-0 sm:gap-6 sm:py-1"
       >
-        <button
+        <Button
+          variant="outline"
+          size="lg"
           onClick={() =>
             document
               .getElementById("projects")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="cursor-pointer rounded-xl border px-4 py-2 transition hover:bg-accent"
         >
           View Projects
-        </button>
-        <Link
-          className="rounded-xl border px-4 py-2 transition hover:bg-accent"
-          href="/blog"
-        >
-          Read Blog
-        </Link>
+        </Button>
+
+        <Button asChild size="lg" variant="outline">
+          <Link href="/blog">Read Blog</Link>
+        </Button>
       </motion.div>
     </section>
   );

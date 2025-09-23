@@ -8,7 +8,13 @@ export const USER: User = {
   gender: "male",
   pronouns: "he/him",
   bio: "Creating with code. Small details matter.",
-  flipSentences: ["Coffee Monster", "Gamer", "Coder By Day", "Wizard By Night"],
+  flipSentences: [
+    "Coffee Monster",
+    "Gamer",
+    "Aspiring Coder",
+    "Frontend Developer",
+    "Backend Explorer",
+  ],
   address: "Lund, Sweden",
   phoneNumber: "KzQ2NzMwMzQwNDM0", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "a2FpZ2FuLmNvZGVzQGdtYWlsLmNvbQ==", // base64 encoded
@@ -24,8 +30,6 @@ export const USER: User = {
   about: `
 Hello!  
 I’m Nicholas, a fullstack student who gravitates toward frontend development.
-
-To me, writing code feels a bit like magic – there’s a lot of logic behind it, but the real joy is in the creativity and problem-solving.
 
 When I’m not deep in code, you’ll probably find me gaming, headbanging, hanging out with my dog and partner, exploring fantasy worlds filled with dragons, swords and magic – or recharging with a big cup of Java ☕️ (pun intended).
 
