@@ -2,10 +2,6 @@
 
 import { useCallback } from "react";
 
-type ViewTransitionDocument = Document & {
-  startViewTransition?: (callback: () => void) => void;
-};
-
 export type AnimationVariant = "circle" | "circle-blur" | "gif" | "polygon";
 export type StartPosition =
   | "center"
@@ -29,6 +25,8 @@ function getClipOrigin(start: StartPosition) {
   return { cx, cy };
 }
 
+const TRANSITION_NAME = "theme-toggle";
+
 export function injectThemeTransition(options: {
   theme: "light" | "dark";
   variant?: AnimationVariant;
@@ -40,20 +38,18 @@ export function injectThemeTransition(options: {
   }
 
   const { theme, variant = "circle", start = "center", url } = options;
-  const transitionName = "theme-toggle";
-
   const { cx, cy } = getClipOrigin(start);
 
   let css = "";
 
   if (variant === "circle") {
     css = `
-      @supports (view-transition-name: ${transitionName}) {
-        ::view-transition-old(${transitionName}) {
+      @supports (view-transition-name: ${TRANSITION_NAME}) {
+        ::view-transition-old(${TRANSITION_NAME}) {
           animation: none;
         }
-        ::view-transition-new(${transitionName}) {
-          animation: circle-expand 0.4s ease-out;
+        ::view-transition-new(${TRANSITION_NAME}) {
+          animation: circle-expand 0.45s ease-out;
           transform-origin: ${POSITIONS[start]};
         }
         @keyframes circle-expand {
@@ -68,14 +64,14 @@ export function injectThemeTransition(options: {
     `;
   } else if (variant === "circle-blur") {
     css = `
-      @supports (view-transition-name: ${transitionName}) {
-        ::view-transition-old(${transitionName}) {
+      @supports (view-transition-name: ${TRANSITION_NAME}) {
+        ::view-transition-old(${TRANSITION_NAME}) {
           animation: none;
         }
-        ::view-transition-new(${transitionName}) {
-          animation: circle-blur-expand 0.5s ease-out;
+        ::view-transition-new(${TRANSITION_NAME}) {
+          animation: circle-blur-expand 0.55s ease-out;
           transform-origin: ${POSITIONS[start]};
-          filter: blur(0);
+          filter: blur(0px);
         }
         @keyframes circle-blur-expand {
           from {
@@ -84,18 +80,18 @@ export function injectThemeTransition(options: {
           }
           to {
             clip-path: circle(150% at ${cx}% ${cy}%);
-            filter: blur(0);
+            filter: blur(0px);
           }
         }
       }
     `;
   } else if (variant === "gif" && url) {
     css = `
-      @supports (view-transition-name: ${transitionName}) {
-        ::view-transition-old(${transitionName}) {
+      @supports (view-transition-name: ${TRANSITION_NAME}) {
+        ::view-transition-old(${TRANSITION_NAME}) {
           animation: fade-out 0.4s ease-out;
         }
-        ::view-transition-new(${transitionName}) {
+        ::view-transition-new(${TRANSITION_NAME}) {
           animation: gif-reveal 2.5s cubic-bezier(0.4, 0, 0.2, 1);
           mask-image: url('${url}');
           mask-size: 0%;
@@ -125,12 +121,12 @@ export function injectThemeTransition(options: {
     `;
   } else if (variant === "polygon") {
     css = `
-      @supports (view-transition-name: ${transitionName}) {
-        ::view-transition-old(${transitionName}) {
+      @supports (view-transition-name: ${TRANSITION_NAME}) {
+        ::view-transition-old(${TRANSITION_NAME}) {
           animation: none;
         }
-        ::view-transition-new(${transitionName}) {
-          animation: ${theme === "light" ? "wipe-in-dark" : "wipe-in-light"} 0.4s ease-out;
+        ::view-transition-new(${TRANSITION_NAME}) {
+          animation: ${theme === "light" ? "wipe-in-dark" : "wipe-in-light"} 0.45s ease-out;
         }
         @keyframes wipe-in-dark {
           from {
@@ -158,7 +154,7 @@ export function injectThemeTransition(options: {
 
   const root = document.documentElement;
   const previousName = root.style.getPropertyValue("view-transition-name");
-  root.style.setProperty("view-transition-name", transitionName);
+  root.style.setProperty("view-transition-name", TRANSITION_NAME);
 
   const styleId = `theme-transition-${Date.now()}`;
   const style = document.createElement("style");
@@ -178,8 +174,12 @@ export function injectThemeTransition(options: {
     } else {
       root.style.removeProperty("view-transition-name");
     }
-  }, 3000);
+  }, 750);
 }
+
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (callback: () => void) => void;
+};
 
 export const useThemeTransition = () => {
   const startTransition = useCallback((updateFn: () => void) => {

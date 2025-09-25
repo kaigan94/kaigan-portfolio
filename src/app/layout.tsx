@@ -22,14 +22,22 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
 // Thanks @shadcn-ui, @tailwindcss
 const darkModeScript = String.raw`
   try {
-    if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
-    }
+    const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = storedTheme ? storedTheme === 'dark' : prefersDark || true;
+
+    const meta = document.querySelector('meta[name="theme-color"]');
+    const color = isDark ? '${META_THEME_COLORS.dark}' : '${META_THEME_COLORS.light}';
+    if (meta) meta.setAttribute('content', color);
+
+    const root = document.documentElement;
+    root.classList.toggle('dark', isDark);
+    root.classList.toggle('light', !isDark);
   } catch (_) {}
 
   try {
     if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
-      document.documentElement.classList.add('os-macos')
+      document.documentElement.classList.add('os-macos');
     }
   } catch (_) {}
 `;

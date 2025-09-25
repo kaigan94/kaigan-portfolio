@@ -276,14 +276,26 @@
     text-rendering: optimizeLegibility;
   }
 
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    background-color: var(--background);
-    color: inherit;
-  }
+  @supports (view-transition-name: root) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      background-color: var(--background);
+    }
 
-  ::view-transition-group(root) {
-    background-color: var(--background);
+    ::view-transition-new(root) {
+      animation: theme-circle-blur 800ms ease-out;
+    }
+
+    @keyframes theme-circle-blur {
+      from {
+        clip-path: circle(0% at 50% 50%);
+        filter: blur(20px);
+      }
+      to {
+        clip-path: circle(150% at 70% 30%);
+        filter: blur(0);
+      }
+    }
   }
 
   /* Custom scrollbar styling. Thanks @shadcn-ui */

@@ -29,7 +29,7 @@ export function Hero() {
   } as const;
 
   return (
-    <section className="screen-line-before screen-line-after flex flex-col items-center gap-6 border-x border-edge bg-black/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[12px_12px] bg-center px-4 py-8 text-center [--pattern-foreground:var(--color-zinc-950)]/5 before:-top-px after:-bottom-px sm:gap-8 sm:py-18 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5">
+    <section className="screen-line-before screen-line-after flex flex-col items-center gap-6 border-x border-edge bg-black/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[12px_12px] bg-center px-4 py-10 text-center [--pattern-foreground:var(--color-zinc-950)]/5 before:-top-px after:-bottom-px sm:gap-8 sm:py-18 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5">
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export function Hero() {
           alt="Kaigan wordmark"
           width={108}
           height={32}
-          className="h-8 w-auto invert filter dark:invert-0"
+          className="h-9 w-auto invert filter dark:invert-0"
           priority
         />
       </motion.div>
@@ -62,6 +62,7 @@ export function Hero() {
         <Button
           variant="outline"
           size="lg"
+          className="min-w-[100px] rounded-full px-6"
           onClick={() =>
             document
               .getElementById("projects")
@@ -71,7 +72,12 @@ export function Hero() {
           View Projects
         </Button>
 
-        <Button asChild size="lg" variant="outline">
+        <Button
+          asChild
+          size="lg"
+          variant="outline"
+          className="min-w-[100px] rounded-full px-6"
+        >
           <Link href="/blog">Read Blog</Link>
         </Button>
       </motion.div>

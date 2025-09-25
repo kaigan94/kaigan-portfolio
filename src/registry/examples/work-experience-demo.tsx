@@ -3,66 +3,77 @@ import { WorkExperience } from "@/registry/work-experience";
 
 const WORK_EXPERIENCE: ExperienceItemType[] = [
   {
-    id: "quaric",
-    companyName: "Quaric Co., Ltd.",
-    companyLogo: "/icons/icon-192x192.png",
+    id: "teknikhogskolan",
+    companyName: "Teknikhögskolan",
+    companyLogo: "/images/logos/teknikhogskolan.svg",
     positions: [
       {
-        id: "30d3a9fb-021d-452a-9d27-83655369b4b9",
-        title: "Software Engineer",
-        employmentPeriod: "03.2024 — present",
-        employmentType: "Part-time",
+        id: "fullstack-student",
+        title: "Fullstack Developer Student",
+        employmentPeriod: "08.2024 — present",
+        employmentType: "Education",
         icon: "code",
-        description: `- Integrated VNPAY-QR for secure transactions.
-- Registered the e-commerce site with [online.gov.vn](https://online.gov.vn) for compliance.
-- Developed online ordering to streamline purchases.
-- Build and maintain ZaDark.com with Docusaurus, integrating AdSense.
-- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox — with 15,000+ active users via Chrome Web Store.`,
+        description: `- Prototyping production-ready React/Next.js apps with TypeScript, shadcn/ui, and Tailwind v4.
+- Building Java & Spring Boot APIs backed by PostgreSQL, including containerised local environments with Docker Compose.
+- Leading project sprints where I facilitate planning, peer code reviews, and documentation to keep the team shipping on time.`,
         skills: [
+          "React",
           "Next.js",
-          "Strapi",
-          "Auth0",
-          "VNPAY-QR",
+          "TypeScript",
+          "Java",
+          "Spring Boot",
+          "MySQL",
           "Docker",
-          "NGINX",
-          "Google Cloud",
-          "Docusaurus",
-          "Extension",
-          "Research",
-          "Project Management",
+          "GitHub Actions",
+          "Agile",
         ],
         isExpanded: true,
       },
       {
-        id: "7586afb2-40e8-49c4-8983-2254c9446540",
-        title: "Product Designer",
-        employmentPeriod: "03.2024 — present",
+        id: "ux-mentor",
+        title: "UI/UX Mentor",
+        employmentPeriod: "01.2024 — 06.2024",
         employmentType: "Part-time",
         icon: "design",
-        description: `- Design UI/UX for Quaric Website with a seamless experience.
-- Develop a Design System for consistency and efficiency.
-- Create Quaric's brand identity, including logo and guidelines.`,
+        description: `- Coached classmates on accessibility-first design and responsive layout systems in Figma.
+- Ran moderated usability tests for our campus scheduling tool, translating insights into design system updates.
+- Maintained shared component libraries to keep interactions, spacing, and motion consistent across student projects.`,
         skills: [
-          "UI/UX Design",
-          "UX Writing",
-          "Design System",
-          "Brand Design",
+          "UX Research",
+          "Design Systems",
           "Figma",
+          "Accessibility",
+          "Prototyping",
         ],
-      },
-      {
-        id: "991692c4-7d02-4666-8d31-933c4831768d",
-        title: "Founder & Director",
-        employmentPeriod: "03.2024 — present",
-        employmentType: "Part-time",
-        icon: "business",
-        description: `- Lead and manage the company's strategy.
-- Oversee technical teams and product development.
-- Manage relationships with customers and partners.`,
-        skills: ["Business Ownership", "Business Law", "Business Tax"],
       },
     ],
     isCurrentEmployer: true,
+  },
+  {
+    id: "kaigan-studio",
+    companyName: "Kaigan Studio",
+    companyLogo: "/images/logos/kaigan.svg",
+    positions: [
+      {
+        id: "freelance-front",
+        title: "Freelance Frontend Developer",
+        employmentPeriod: "09.2022 — present",
+        employmentType: "Freelance",
+        icon: "design",
+        description: `- Design and ship bespoke marketing sites and dashboards for local creatives using React, Tailwind CSS, and Sanity CMS.
+- Integrate third-party APIs (Spotify, Supabase, Google Analytics) to automate content workflows and reporting.
+- Deploy client projects to Vercel with automated Lighthouse checks and basic observability through Sentry.`,
+        skills: [
+          "React",
+          "Tailwind CSS",
+          "Sanity",
+          "Supabase",
+          "Vercel",
+          "Brand Design",
+          "Client Management",
+        ],
+      },
+    ],
   },
 ];
 
